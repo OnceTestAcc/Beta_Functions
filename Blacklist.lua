@@ -10,5 +10,6 @@ return {
   "79BAD6B6-C6BD-49EF-9A81-0BCB9108CA05",
   "F1ACA037-0829-46B8-A411-51E1BE53667A",
   "6B50F60A-3955-43C7-82C8-7C07B48850DB", -- lmao
-  "541D5567-1952-43AA-B4AB-1D4463639526" -- the guy who logs people's address
+  "541D5567-1952-43AA-B4AB-1D4463639526", -- the guy who logs people's address
+  "bb83e412-357c-4a1e-a968-2cb77cdfd7e9" --petah guy
 }
