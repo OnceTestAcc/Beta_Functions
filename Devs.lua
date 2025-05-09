@@ -7,5 +7,5 @@ return {
   "yqLy@^q^[@LL@GTFxkzHN6YJXm9QRn1JF",
   "b%buxsns%%uuYRdB35t07lppvL3HnGBB9",
   "y[!@!qy[^!L[eGTFxkzHN6YJXm9QRn1JF", -- oink
-  "b%[#nb[YusK[xRdB35t07lppvL3HnGBB9"
+  "b%[#nbsxs[%K[RdB35t07lppvL3HnGBB9"
 }
