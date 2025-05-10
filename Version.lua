@@ -1,1 +1,1 @@
-return 1.495
+return 1.496
