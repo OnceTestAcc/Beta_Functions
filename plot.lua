@@ -688,7 +688,12 @@ local function Color3ToRGBTable(color)
 	}
 end
 
+local HttpService = game:GetService("HttpService")
+
 local function vanguardPlotToAnomiss(plotData)
+    if not plotData["data"] then
+        writefile("TEMP.json", HttpService:JSONEncode(plotData))
+    end
     local newPlotData = {
 		["Info"] = {
 			["Type"]=plotData["data"]["name"],
@@ -730,7 +735,6 @@ local plotlocations = {
 }
 
 local UserInputService = game:GetService("UserInputService")
-local HttpService = game:GetService("HttpService")
 local hwid = gethwid()
 
 local function bulkUpload(SaveUnpackedPlot)
