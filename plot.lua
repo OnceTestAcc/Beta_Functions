@@ -691,12 +691,9 @@ end
 local HttpService = game:GetService("HttpService")
 
 local function vanguardPlotToAnomiss(plotData)
-    if not plotData["data"] then
-        writefile("TEMP.json", HttpService:JSONEncode(plotData))
-    end
     local newPlotData = {
 		["Info"] = {
-			["Type"]=plotData["data"]["name"],
+			["Type"]=plotData["name"],
 			["Owner"]="Converted From Vanguard",
 			["OwnerID"]=0
 		},
@@ -704,7 +701,7 @@ local function vanguardPlotToAnomiss(plotData)
 		["Paintables"] = {}
 	}
 
-    for i,furn in pairs(plotData["data"]["furniture"]) do
+    for i,furn in pairs(plotData["furniture"]) do
         local FurnitureData = {
 			["Name"]=furn["name"],
 			["Position"]= {CFrame.new(table.unpack(furn["cframe"])):GetComponents()},
@@ -719,7 +716,7 @@ local function vanguardPlotToAnomiss(plotData)
         newPlotData["Furniture"][#newPlotData["Furniture"]+1] = FurnitureData
     end
 
-    for i,paintable in pairs(plotData["data"]["wallcolors"]) do
+    for i,paintable in pairs(plotData["wallcolors"]) do
         newPlotData["Paintables"][paintable["name"]] = {
             ["Color"] = Color3ToRGBTable(Color3.new(paintable.color.R,paintable.color.G,paintable.color.B)),
             ["Material"] = paintable["material"]
