@@ -751,9 +751,6 @@ local function bulkUpload(SaveUnpackedPlot)
                 local plotData = sortPlotData(vanguardPlotToAnomiss(SaveUnpackedPlot(true,plot,nil,true)))
                 
                 local encodedPlotData = lzw.compress(msgpack.encode(plotData))
-                writefile("rawjson.bin", HttpService:JSONEncode(plotData))
-                writefile("encoded.bin",msgpack.encode(plotData))
-                writefile("encodedCompressed.bin", encodedPlotData)
                 bulkUploadObject[#bulkUploadObject+1] = {
                     PlotOwner = plotData.Info.OwnerID,
                     PlotType = plotData.Info.Type,
