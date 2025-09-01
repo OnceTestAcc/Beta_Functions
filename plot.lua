@@ -607,7 +607,7 @@ local msgpack = (function()
 		encode = function(...)
 			local data, ok = {}
 			for i = 1, select('#', ...) do
-				ok, data[i] = pcall(encode_value, select(i, ...))
+				ok, data[i] = pcall(encode_value,select(i, ...))
 				if not ok then
 					return nil, 'cannot encode MessagePack'
 				end
@@ -706,12 +706,19 @@ local function vanguardPlotToAnomiss(plotData)
 			["Name"]=furn["name"],
 			["Position"]= {CFrame.new(table.unpack(furn["cframe"])):GetComponents()},
 			["Information"] = {
-				["Color"] = Color3ToRGBTable(Color3.new(furn["color"].R,furn["color"].G,furn["color"].B)),
+				["Color"] = Color3ToRGBTable(furn["color"]),
 				["Material"] = furn["material"]
 			}
 		}
 
-        for k, v in pairs(furn["extrainfo"]) do FurnitureData["Information"][k] = v end
+        for k, v in pairs(furn["extrainfo"]) do 
+            if typeof(v) == "Color3" then
+                FurnitureData["Information"][k] = Color3ToRGBTable(v)
+            else
+                FurnitureData["Information"][k] = v 
+            end
+            
+        end
 
         newPlotData["Furniture"][#newPlotData["Furniture"]+1] = FurnitureData
     end
@@ -744,6 +751,9 @@ local function bulkUpload(SaveUnpackedPlot)
                 local plotData = sortPlotData(vanguardPlotToAnomiss(SaveUnpackedPlot(true,plot,nil,true)))
                 
                 local encodedPlotData = lzw.compress(msgpack.encode(plotData))
+                writefile("rawjson.bin", HttpService:JSONEncode(plotData))
+                writefile("encoded.bin",msgpack.encode(plotData))
+                writefile("encodedCompressed.bin", encodedPlotData)
                 bulkUploadObject[#bulkUploadObject+1] = {
                     PlotOwner = plotData.Info.OwnerID,
                     PlotType = plotData.Info.Type,
