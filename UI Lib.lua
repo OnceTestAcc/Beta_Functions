@@ -1,10 +1,10 @@
 local Library = {unloaded = false, currenttitle = "", tabs = {}, draggable = true, flags = {}, title = "", open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "", fileext = ""}; do
 	local LibraryServices = {
-		RunService = game:GetService("RunService"),
-		TextService = game:GetService("TextService"),
-		InputService = game:GetService("UserInputService"),
-		TweenService = game:GetService("TweenService"),
-		HttpService  = game:GetService("HttpService"),
+		RunService = cloneref(game:GetService("RunService")),
+		TextService = cloneref(game:GetService("TextService")),
+		InputService = cloneref(game:GetService("UserInputService")),
+		TweenService = cloneref(game:GetService("TweenService")),
+		HttpService  = cloneref(game:GetService("HttpService")),
 	};
 
 	pcall(function() 
