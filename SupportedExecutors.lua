@@ -5,7 +5,6 @@ return {
 		"Potassium",
 		"Seliware",
 		"OpiumwareMac",
-		"Real",
 		"Madium"
 	},
 	printer = {
@@ -14,7 +13,6 @@ return {
 		"Potassium",
 		"Seliware",
 		"OpiumwareMac",
-		"Real",
 		"Madium"
 	},
 	truck = {
@@ -23,7 +21,6 @@ return {
 		"Potassium",
 		"Seliware",
 		"OpiumwareMac",
-		"Real",
 		"Madium"
 	},
 	revamp = {
@@ -32,7 +29,6 @@ return {
 		"Potassium",
 		"Seliware",
 		"OpiumwareMac",
-		"Real",
 		"Madium"
 	},
 	wildwest = {
@@ -40,7 +36,6 @@ return {
 		"Potassium",
 		"Seliware",
 		"OpiumwareMac",
-		"Real",
 		"Madium"
 	}
 }
